@@ -1,0 +1,14 @@
+set autoindent
+set backup
+set multibuffer
+set noconvert
+set tabsize 4
+
+set brackets ""')>]}"
+set morespace
+set tabstospaces
+unset historylog
+set mouse
+set smooth
+set speller "aspell -x -c"
+set softwrap
