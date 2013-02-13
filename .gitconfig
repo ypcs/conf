@@ -1,0 +1,32 @@
+[user]
+name = Ville Korhonen
+email = ville@xd.fi
+signingkey = 0x792c62dc
+ 
+[color]
+diff = auto
+status = auto
+branch = auto
+interactive = auto
+
+[alias]
+st = status
+ci = commit
+co = checkout
+br = branch
+up = pull
+df = diff
+lg = log -p
+lol = log --graph --decorate --pretty=oneline --abbrev-commit
+lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+ls = ls-files
+sm = submodule
+
+[merge]
+tool = opendiff
+summary = true
+
+[core]
+
+[branch]
+	autosetupmerge = true
