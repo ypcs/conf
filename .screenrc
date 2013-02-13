@@ -1,0 +1,18 @@
+shelltitle ''
+hardstatus alwayslastline
+hardstatus string "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= %{g}/%{w}%H %{K}%Y-%m-%d %{g}%c:%s"
+caption string "%?%{= kB} %t%= %?%F%{= Bk}%:%{= wk}%? %n "
+
+startup_message off
+autodetach on
+
+term screen-256color
+#termcapinfo xterm*|Eterm|mlterm|rxvt 'hs:ts=\E]0;:fs=\007:ds=\E]0;screen\007'
+termcapinfo xterm* ti@:te@
+
+
+
+defscrollback 1000
+vbell off
+defutf8 on
+msgwait 1
