@@ -1,15 +1,14 @@
-[user]
-name = Ville Korhonen
-email = ville@xd.fi
-signingkey = 0x792c62dc
- 
 [color]
 diff = auto
 status = auto
 branch = auto
 interactive = auto
+ui = auto
 
 [alias]
+aa = add --all
+ap = add --patch
+br = branch
 st = status
 ci = commit
 co = checkout
@@ -30,3 +29,4 @@ summary = true
 
 [branch]
 	autosetupmerge = true
+
