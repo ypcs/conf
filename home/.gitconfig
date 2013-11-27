@@ -12,7 +12,6 @@ br = branch
 st = status
 ci = commit
 co = checkout
-br = branch
 up = pull
 df = diff
 lg = log -p
@@ -29,4 +28,3 @@ summary = true
 
 [branch]
 	autosetupmerge = true
-
