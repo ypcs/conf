@@ -1,0 +1,2 @@
+:set modeline
+:syntax on
