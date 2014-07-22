@@ -114,6 +114,11 @@ then
     PATH="${PATH}:${HOME}/scripts"
 fi
 
+if [ -d "${HOME}/bin" ]
+then
+    PATH="${HOME}/bin:${PATH}"
+fi
+
 if [ -f "${HOME}/.bashrc.local" ]
 then
     . "${HOME}/.bashrc.local"
