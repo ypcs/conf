@@ -123,3 +123,7 @@ if [ -f "${HOME}/.bashrc.local" ]
 then
     . "${HOME}/.bashrc.local"
 fi
+if [ -f "${HOME}/work/Vagrantfile" ]
+then
+    alias vgws='cd work && vagrant up && vagrant ssh'
+fi
