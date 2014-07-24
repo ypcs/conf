@@ -125,5 +125,5 @@ then
 fi
 if [ -f "${HOME}/work/Vagrantfile" ]
 then
-    alias vgws='cd work && vagrant up && vagrant ssh'
+    alias vgws='cd ${HOME}/work && vagrant up && vagrant ssh'
 fi
