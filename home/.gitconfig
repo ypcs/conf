@@ -31,3 +31,5 @@ autosetupmerge = true
 
 [include]
 path = ~/.gitconfig.local
+[credential]
+	helper = cache
