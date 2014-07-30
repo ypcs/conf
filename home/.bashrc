@@ -123,7 +123,27 @@ if [ -f "${HOME}/.bashrc.local" ]
 then
     . "${HOME}/.bashrc.local"
 fi
-if [ -f "${HOME}/work/Vagrantfile" ]
+
+# Add support for Vagrant workspace (vgws)
+if [ -f "${HOME}/work/vgws/Vagrantfile" ]
 then
-    alias vgws='cd ${HOME}/work && vagrant up && vagrant ssh ; cd ~'
+    vgws() {
+        CUDI="${PWD}"
+        cd "${HOME}/work/vgws"
+        vagrant up
+        vagrant ssh
+        cd "${CUDI}"
+    }
+    vgwsdestroy() {
+        CUDI="${PWD}"
+        cd "${HOME}/work/vgws"
+        vagrant destroy -f
+        cd "${CUDI}"
+    }
+    vgwshalt() {
+        CUDI="${PWD}"
+        cd "${HOME}/work/vgws"
+        vagrant halt
+        cd "${CUDI}"
+    }
 fi
