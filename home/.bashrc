@@ -148,7 +148,8 @@ then
     }
 fi
 
-if [ -x vim ]
+if [ -x /usr/bin/vim ]
 then
-    export EDITOR="vim"
+    export EDITOR="/usr/bin/vim"
+    alias nano=vim
 fi
