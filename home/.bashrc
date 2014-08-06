@@ -147,3 +147,8 @@ then
         cd "${CUDI}"
     }
 fi
+
+if [ -x vim ]
+then
+    export EDITOR="vim"
+fi
