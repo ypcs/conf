@@ -153,3 +153,12 @@ then
     export EDITOR="/usr/bin/vim"
     alias nano=vim
 fi
+
+alias skim='/usr/bin/nano -v'
+
+if [ -x /usr/share/source-highlight/src-hilite-lesspipe.sh ]
+then
+    export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+    export LESS=' -R '
+fi
+
