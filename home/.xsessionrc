@@ -1,0 +1,4 @@
+if [ -s ${HOME}/.Xmodmap ]
+then
+    xmodmap ${HOME}/.Xmodmap
+fi
