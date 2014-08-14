@@ -109,9 +109,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -d "${HOME}/scripts" ]
+if [ -d "${HOME}/work/my/scripts" ]
 then
-    PATH="${PATH}:${HOME}/scripts"
+    PATH="${PATH}:${HOME}/work/my/scripts"
 fi
 
 if [ -d "${HOME}/bin" ]
