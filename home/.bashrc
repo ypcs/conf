@@ -47,12 +47,12 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
     else
-	color_prompt=
+    color_prompt=
     fi
 fi
 
@@ -109,9 +109,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -d "${HOME}/scripts" ]
+if [ -d "${HOME}/work/my/scripts" ]
 then
-    PATH="${PATH}:${HOME}/scripts"
+    PATH="${PATH}:${HOME}/work/my/scripts"
 fi
 
 if [ -d "${HOME}/bin" ]
@@ -125,24 +125,24 @@ then
 fi
 
 # Add support for Vagrant workspace (vgws)
-if [ -f "${HOME}/work/vgws/Vagrantfile" ]
+if [ -f "${HOME}/work/my/vgws/Vagrantfile" ]
 then
     vgws() {
         CUDI="${PWD}"
-        cd "${HOME}/work/vgws"
+        cd "${HOME}/work/my/vgws"
         vagrant up
         vagrant ssh
         cd "${CUDI}"
     }
     vgwsdestroy() {
         CUDI="${PWD}"
-        cd "${HOME}/work/vgws"
+        cd "${HOME}/work/my/vgws"
         vagrant destroy -f
         cd "${CUDI}"
     }
     vgwshalt() {
         CUDI="${PWD}"
-        cd "${HOME}/work/vgws"
+        cd "${HOME}/work/my/vgws"
         vagrant halt
         cd "${CUDI}"
     }
@@ -162,3 +162,29 @@ then
     export LESS=' -R '
 fi
 
+if [ -x /usr/bin/git ]
+then
+    git-github-origin() {
+        if [ ! -d ".git" ]
+        then
+            echo "Error: not in git repo."
+            exit 1
+        fi
+        ORIGIN="$(git remote -v |grep origin)"
+        HTTPS_URL="$(echo ${ORIGIN} |awk '{print $2}' |grep ^https://github.com/)"
+        if [ -z "${HTTPS_URL}" ]
+        then
+            echo "E: Repository doesn't have https github origin."
+        fi
+        echo "I: Rename origin to https..."
+        git remote rename origin https
+        GIT_URL="$(echo ${HTTPS_URL} |sed 's,https://,git@,g' |sed 's,github.com/,github.com:,g')"
+        if [ -z "$(echo ${GIT_URL} |grep .git$)" ]
+        then
+            echo "I: Append .git to URL..."
+            GIT_URL="${GIT_URL}.git"
+        fi
+        echo "I: Add new origin ${GIT_URL}..."
+        git remote add origin "${GIT_URL}"
+    }
+fi
