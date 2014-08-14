@@ -6,10 +6,12 @@ set -e
 
 CONF_REPO="https://github.com/ypcs/conf"
 SCRIPT_REPO="https://github.com/ypcs/scripts"
+VGWS_REPO="https://github.com/ypcs/vg"
 
 WORK_DIR="${HOME}/work/my"
 CONF_DIR="${WORK_DIR}/conf"
 SCRIPT_DIR="${WORK_DIR}/scripts"
+VGWS_DIR="${WORK_DIR}/my/vgws"
 
 echo "I: Create work directory..."
 mkdir -p "${HOME}/work/my"
@@ -28,6 +30,14 @@ then
 else
     echo "I: Checking out scripts..."
     git clone "${SCRIPT_REPO}" "${SCRIPT_DIR}"
+fi
+
+if [ -d "${VGWS_DIR}" ]
+then
+    echo "I: Vgws directory already exists, not overwriting..."
+else
+    echo "I: Checking out vgws..."
+    git clone "${VGWS_REPO}" "${VGWS_DIR}"
 fi
 
 cd "${HOME}"
