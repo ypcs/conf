@@ -11,7 +11,7 @@ VGWS_REPO="https://github.com/ypcs/vg"
 WORK_DIR="${HOME}/work/my"
 CONF_DIR="${WORK_DIR}/conf"
 SCRIPT_DIR="${WORK_DIR}/scripts"
-VGWS_DIR="${WORK_DIR}/my/vgws"
+VGWS_DIR="${WORK_DIR}/vgws"
 
 echo "I: Create work directory..."
 mkdir -p "${HOME}/work/my"
