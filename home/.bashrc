@@ -125,24 +125,24 @@ then
 fi
 
 # Add support for Vagrant workspace (vgws)
-if [ -f "${HOME}/work/vgws/Vagrantfile" ]
+if [ -f "${HOME}/work/my/vgws/Vagrantfile" ]
 then
     vgws() {
         CUDI="${PWD}"
-        cd "${HOME}/work/vgws"
+        cd "${HOME}/work/my/vgws"
         vagrant up
         vagrant ssh
         cd "${CUDI}"
     }
     vgwsdestroy() {
         CUDI="${PWD}"
-        cd "${HOME}/work/vgws"
+        cd "${HOME}/work/my/vgws"
         vagrant destroy -f
         cd "${CUDI}"
     }
     vgwshalt() {
         CUDI="${PWD}"
-        cd "${HOME}/work/vgws"
+        cd "${HOME}/work/my/vgws"
         vagrant halt
         cd "${CUDI}"
     }
