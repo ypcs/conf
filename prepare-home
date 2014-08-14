@@ -1,0 +1,57 @@
+#!/bin/sh
+
+# Prepare my home directory
+
+set -e
+
+CONF_REPO="https://github.com/ypcs/conf"
+SCRIPT_REPO="https://github.com/ypcs/scripts"
+
+WORK_DIR="${HOME}/work/my"
+CONF_DIR="${WORK_DIR}/conf"
+SCRIPT_DIR="${WORK_DIR}/scripts"
+
+echo "I: Create work directory..."
+mkdir -p "${HOME}/work/my"
+
+if [ -d "${CONF_DIR}" ]
+then
+    echo "I: Config directory already exists, not overwriting..."
+else
+    echo "I: Checking out configs..."
+    git clone "${CONF_REPO}" "${CONF_DIR}"
+fi
+
+if [ -d "${SCRIPT_DIR}" ]
+then
+    echo "I: Script directory already exists, not overwriting..."
+else
+    echo "I: Checking out scripts..."
+    git clone "${SCRIPT_REPO}" "${SCRIPT_DIR}"
+fi
+
+cd "${HOME}"
+echo "I: Symlinking global config files..."
+ln -sf "${CONF_DIR}/home/.bashrc" .bashrc
+ln -sf "${CONF_DIR}/home/.gitconfig" .gitconfig
+ln -sf "${CONF_DIR}/home/.profile" .profile
+ln -sf "${CONF_DIR}/home/.nanorc" .nanorc
+ln -sf "${CONF_DIR}/home/.screenrc" .screenrc
+ln -sf "${CONF_DIR}/home/.lynxrc" .lynxrc
+ln -sf "${CONF_DIR}/home/.quiltrc" .quiltrc
+ln -sf "${CONF_DIR}/home/.pip" .pip
+
+echo "I: Creating local configuration..."
+echo " - .gitconfig.local..."
+cat >.gitconfig.local << \EOF
+[user]
+name = Ville Korhonen
+email = ville@xd.fi
+EOF
+
+echo " - .bashrc.local..."
+cat >.bashrc.local << \EOF
+export DEBFULLNAME="Ville Korhonen"
+export DEBEMAIL="ville@xd.fi"
+EOF
+
