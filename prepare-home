@@ -15,6 +15,7 @@ VGWS_DIR="${WORK_DIR}/vgws"
 
 echo "I: Create work directory..."
 mkdir -p "${HOME}/work/my"
+mkdir -p "${HOME}/tmp"
 
 if [ -d "${CONF_DIR}" ]
 then
