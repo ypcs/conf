@@ -48,3 +48,4 @@ apt-get -y install vagrant virtualbox
 apt-get -y install fonts-lato fonts-inconsolata
 apt-get -y install xdg-utils xdg-user-dirs xdg-user-dirs-gtk
 apt-get -y install xtrlock
+apt-get -y install htop screen
