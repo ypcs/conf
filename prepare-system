@@ -4,6 +4,7 @@ set -e
 
 # TODO: Add support for host-specific package installation
 # TODO: Define packagelists in separate file(s)
+# TODO: Install reniced, configure
 
 if [ ! -f "/etc/apt/apt.conf.d/99no-recommends" ]
 then
