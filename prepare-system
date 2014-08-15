@@ -1,6 +1,10 @@
 #!/bin/sh
 set -e
 
+
+# TODO: Add support for host-specific package installation
+# TODO: Define packagelists in separate file(s)
+
 if [ ! -f "/etc/apt/apt.conf.d/99no-recommends" ]
 then
 echo "I: Configuring no-recommends..."
