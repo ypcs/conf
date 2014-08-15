@@ -1,0 +1,44 @@
+#!/bin/sh
+set -e
+
+if [ ! -f "/etc/apt/apt.conf.d/99no-recommends" ]
+then
+echo "I: Configuring no-recommends..."
+cat > /etc/apt/apt.conf.d/99no-recommends << \EOF
+APT::Install-Recommends "false";
+APT::Install-Suggests "false";
+EOF
+fi
+
+echo "I: Configuring GRUB timeout..."
+sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/g' /etc/default/grub
+update-grub
+
+echo "I: Configuring APT components..."
+sed -i 's/main$/main contrib non-free/g' /etc/apt/sources.list
+
+apt-get update
+export DEBIAN_FRONTEND="noninteractive"
+
+echo "I: Installing essential packages..."
+apt-get -y install git etckeeper
+apt-get -y install vim vim-scripts
+apt-get -y install build-essential packaging-dev
+
+
+apt-get -y install task-xfce-desktop kupfer chromium
+apt-get -y install terminator
+apt-get -y install openssh-server
+
+echo "I: Configure openssh-server..."
+adduser --system sshusers
+sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
+grep -q '^AllowGroups sshusers' /etc/ssh/sshd_config || echo 'AllowGroups sshusers' >>/etc/ssh/sshd_config
+service ssh restart
+
+apt-get -y install ufw
+ufw allow 22/tcp
+ufw enable
+
+apt-get -y install pcscd opensc
+
