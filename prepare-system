@@ -61,4 +61,6 @@ apt-get -y install libreoffice libreoffice-voikko libreoffice-gtk
 apt-get -y install apparmor apparmor-docs apparmor-easyprof apparmor-notify apparmor-profiles apparmor-utils
 apt-get -y install lm-sensors cpufreqd cpufrequtils
 
+apt-get -y install parted gparted
+
 apt-get -y autoremove
