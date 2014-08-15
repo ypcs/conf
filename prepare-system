@@ -41,4 +41,4 @@ ufw allow 22/tcp
 ufw enable
 
 apt-get -y install pcscd opensc
-
+apt-get -y install vagrant virtualbox
