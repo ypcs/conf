@@ -45,3 +45,4 @@ ufw enable
 
 apt-get -y install pcscd opensc
 apt-get -y install vagrant virtualbox
+apt-get -y install fonts-lato fonts-inconsolata
