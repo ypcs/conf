@@ -26,8 +26,7 @@ apt-get -y install vim vim-scripts
 apt-get -y install build-essential packaging-dev
 
 
-apt-get -y install task-xfce-desktop kupfer chromium
-apt-get -y install terminator
+apt-get -y install task-xfce-desktop kupfer chromium terminator
 apt-get -y install openssh-server
 
 echo "I: Configure openssh-server..."
