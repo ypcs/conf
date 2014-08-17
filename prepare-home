@@ -51,6 +51,7 @@ ln -sf "${CONF_DIR}/home/.screenrc" .screenrc
 ln -sf "${CONF_DIR}/home/.lynxrc" .lynxrc
 ln -sf "${CONF_DIR}/home/.quiltrc" .quiltrc
 ln -sf "${CONF_DIR}/home/.pip" .pip
+ln -sf "${CONF_DIR}/home/.vimrc" .vimrc
 
 echo "I: Creating local configuration..."
 echo " - .gitconfig.local..."
