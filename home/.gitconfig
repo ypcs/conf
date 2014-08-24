@@ -33,7 +33,9 @@ autosetuprebase = always
 
 [include]
 path = ~/.gitconfig.local
+
 [credential]
-	helper = cache
+helper = cache
+
 [push]
-	default = simple
+default = simple
