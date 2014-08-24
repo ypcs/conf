@@ -35,7 +35,7 @@ apt-get -y install task-xfce-desktop kupfer chromium terminator xfce4-goodies xf
 apt-get -y install openssh-server
 
 echo "I: Configure openssh-server..."
-adduser --system sshusers
+addgroup --system sshusers
 sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
 grep -q '^AllowGroups sshusers' /etc/ssh/sshd_config || echo 'AllowGroups sshusers' >>/etc/ssh/sshd_config
 service ssh restart
