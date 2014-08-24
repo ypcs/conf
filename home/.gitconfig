@@ -29,6 +29,7 @@ summary = true
 
 [branch]
 autosetupmerge = true
+autosetuprebase = always
 
 [include]
 path = ~/.gitconfig.local
