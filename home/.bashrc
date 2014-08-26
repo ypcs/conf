@@ -164,6 +164,11 @@ then
     export LESS=' -R '
 fi
 
+if [ -x /usr/bin/less ]
+then
+    alias more='less'
+fi
+
 if [ -x /usr/bin/git ]
 then
     git-github-origin() {
