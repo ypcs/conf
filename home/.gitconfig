@@ -11,6 +11,7 @@ ap = add --patch
 br = branch
 st = status -sb
 ci = commit
+cis = commit -s
 co = checkout
 up = pull
 df = diff
