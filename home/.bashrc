@@ -127,24 +127,24 @@ then
 fi
 
 # Add support for Vagrant workspace (vgws)
-if [ -f "${HOME}/work/my/vgws/Vagrantfile" ]
+if [ -f "${HOME}/work/vgws/Vagrantfile" ]
 then
     vgws() {
         CUDI="${PWD}"
-        cd "${HOME}/work/my/vgws"
+        cd "${HOME}/work/vgws"
         vagrant up
         vagrant ssh
         cd "${CUDI}"
     }
     vgwsdestroy() {
         CUDI="${PWD}"
-        cd "${HOME}/work/my/vgws"
+        cd "${HOME}/work/vgws"
         vagrant destroy -f
         cd "${CUDI}"
     }
     vgwshalt() {
         CUDI="${PWD}"
-        cd "${HOME}/work/my/vgws"
+        cd "${HOME}/work/vgws"
         vagrant halt
         cd "${CUDI}"
     }
@@ -195,3 +195,27 @@ then
         git remote add origin "${GIT_URL}"
     }
 fi
+
+toggle_connectivity() {
+    STATE="$1"
+    if [ -z "${STATE}" ]
+    then
+        STATE="disable"
+    fi
+
+    case "${STATE}" in
+        enable)
+            sudo rfkill unblock wifi
+            sudo ${HOME}/work/my/scripts/block-usb-devices driver enable
+        ;;
+        disable)
+            sudo rfkill block bluetooth
+            sudo rfkill block wifi
+            sudo ${HOME}/work/my/scripts/block-usb-devices driver disable
+        ;;
+        *)
+            echo "Invalid state: ${STATE}"
+            exit 1
+        ;;
+    esac
+}
