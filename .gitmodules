@@ -4,9 +4,6 @@
 [submodule "home/.vim/bundle/closetag"]
 	path = home/.vim/bundle/closetag
 	url = git://github.com/docunext/closetag.vim.git
-[submodule "home/.vim/bundle/pyflakes"]
-	path = home/.vim/bundle/pyflakes
-	url = git://github.com/kevinw/pyflakes-vim.git
 [submodule "home/.vim/bundle/supertab"]
 	path = home/.vim/bundle/supertab
 	url = git://github.com/vim-scripts/supertab.git
@@ -22,3 +19,9 @@
 [submodule "home/.vim/bundle/snipmate"]
 	path = home/.vim/bundle/snipmate
 	url = https://github.com/msanders/snipmate.vim
+[submodule "home/.vim/bundle/Command-T"]
+	path = home/.vim/bundle/Command-T
+	url = https://github.com/wincent/Command-T
+[submodule "home/.vim/bundle/syntastic"]
+	path = home/.vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
