@@ -219,3 +219,8 @@ toggle_connectivity() {
         ;;
     esac
 }
+
+debbug() {
+    BUG="$1"
+    xdg-open "https://bugs.debian.org/${BUG}"
+}
