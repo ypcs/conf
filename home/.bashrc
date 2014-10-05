@@ -241,5 +241,6 @@ alias packages-installed='dpkg --get-selections |grep -v deinstall'
 
 if [ -r "${HOME}/.mailrc" ]
 then
-    alias mail="mail -S smpt-auth-password=\$(openssl enc -aes-256-cbc -a -d -in ~/.mailpw)"
+    alias mail="/usr/bin/mail -S smtp-auth-password=\$(openssl enc -aes-256-cbc -a -d -in ~/.mailpw)"
+    alias mailx="/usr/bin/mailx -S smtp-auth-password=\$(openssl enc -aes-256-cbc -a -d -in ~/.mailpw)"
 fi
