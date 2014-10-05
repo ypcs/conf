@@ -224,3 +224,22 @@ debbug() {
     BUG="$1"
     xdg-open "https://bugs.debian.org/${BUG}"
 }
+
+export GOPATH="${HOME}/.golang"
+if [ ! -d "${GOPATH}" ]
+then
+    mkdir -p "${GOPATH}"
+fi
+
+if [ -d "${GOPATH}/bin" ]
+then
+    export PATH="${PATH}:${GOPATH}/bin"
+fi
+
+alias packages-with-no-rdepends='deborphan --ignore-recommends --ignore-suggests --all-packages'
+alias packages-installed='dpkg --get-selections |grep -v deinstall'
+
+if [ -r "${HOME}/.mailrc" ]
+then
+    alias mail="mail -S smpt-auth-password=\$(openssl enc -aes-256-cbc -a -d -in ~/.mailpw)"
+fi
