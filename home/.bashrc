@@ -244,3 +244,5 @@ then
     alias mail="/usr/bin/mail -S smtp-auth-password=\$(openssl enc -aes-256-cbc -a -d -in ~/.mailpw)"
     alias mailx="/usr/bin/mailx -S smtp-auth-password=\$(openssl enc -aes-256-cbc -a -d -in ~/.mailpw)"
 fi
+
+export CHROMIUM_USER_FLAGS="--ssl-version-min=tls1"
