@@ -217,5 +217,25 @@ alias packages-installed='dpkg --get-selections |grep -v deinstall'
 
 export CHROMIUM_USER_FLAGS="--ssl-version-min=tls1"
 
-alias vg='cd ~/work && vagrant up && vagrant ssh'
-alias vgd='cd ~/work && vagrant destroy -f'
+if [[ -d ~/work && -x /usr/bin/vagrant ]]
+then
+    vgws() {
+        cur="$(realpath $(pwd))"
+        cd ~/work
+        vagrant up
+        if [ "x$#" = "x0" ]
+        then
+            vagrant ssh
+        else
+            vagrant ssh -c "$@"
+        fi
+        cd "${cur}"
+    }
+    vgwsd() {
+        cur="$(realpath $(pwd))"
+        cd ~/work
+        vagrant destroy -f
+        cd "${cur}"
+    }
+fi
+
