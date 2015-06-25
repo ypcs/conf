@@ -216,3 +216,6 @@ alias packages-with-no-rdepends='deborphan --ignore-recommends --ignore-suggests
 alias packages-installed='dpkg --get-selections |grep -v deinstall'
 
 export CHROMIUM_USER_FLAGS="--ssl-version-min=tls1"
+
+alias vg='cd ~/work && vagrant up && vagrant ssh'
+alias vgd='cd ~/work && vagrant destroy -f'
