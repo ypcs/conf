@@ -126,30 +126,6 @@ then
     . "${HOME}/.bashrc.local"
 fi
 
-# Add support for Vagrant workspace (vgws)
-if [ -f "${HOME}/work/vgws/Vagrantfile" ]
-then
-    vgws() {
-        CUDI="${PWD}"
-        cd "${HOME}/work/vgws"
-        vagrant up
-        vagrant ssh
-        cd "${CUDI}"
-    }
-    vgwsdestroy() {
-        CUDI="${PWD}"
-        cd "${HOME}/work/vgws"
-        vagrant destroy -f
-        cd "${CUDI}"
-    }
-    vgwshalt() {
-        CUDI="${PWD}"
-        cd "${HOME}/work/vgws"
-        vagrant halt
-        cd "${CUDI}"
-    }
-fi
-
 if [ -x /usr/bin/vim ]
 then
     export EDITOR="/usr/bin/vim"
@@ -238,11 +214,5 @@ fi
 
 alias packages-with-no-rdepends='deborphan --ignore-recommends --ignore-suggests --all-packages'
 alias packages-installed='dpkg --get-selections |grep -v deinstall'
-
-if [ -r "${HOME}/.mailrc" ]
-then
-    alias mail="/usr/bin/mail -S smtp-auth-password=\$(openssl enc -aes-256-cbc -a -d -in ~/.mailpw)"
-    alias mailx="/usr/bin/mailx -S smtp-auth-password=\$(openssl enc -aes-256-cbc -a -d -in ~/.mailpw)"
-fi
 
 export CHROMIUM_USER_FLAGS="--ssl-version-min=tls1"
