@@ -4,3 +4,4 @@ Thumbs.db
 *.py[co]
 *.swp
 home/.vim/.netrwhist
+home/.ssh/known_hosts
